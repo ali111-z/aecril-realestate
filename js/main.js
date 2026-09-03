@@ -319,4 +319,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- 9. Gallery Lightbox ---
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    
+    if (imageModal && modalImage) {
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.style.cursor = 'pointer'; // Make it obvious they are clickable
+            img.addEventListener('click', () => {
+                modalImage.src = img.src; // Swap the source
+                const modal = new bootstrap.Modal(imageModal);
+                modal.show(); // Open the modal
+            });
+        });
+    }
+
 });
